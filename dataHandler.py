@@ -3,7 +3,18 @@ import re
 
 data_list = []
 
-categories = set()
+categories = set("Fashion", "Electronics", "Home", "Baby", "Toys", "Food", "Pets", "Beauty", "Personal Care", "Arts, Crafts & Sewing")
+
+fashion = ["Fashion", "Featured Brands", "Women", "Men", "Clothing", "Jewelry"]
+electronics = ["Electronics", "TV & Video", "Computers", "Cell Phones", "Wearable Tech", "iPad & Tablets", "Home Audio & Theater", "Video Games", "Portable Audio", "Cameras & Camcorders", "Smart Home"]
+home = ["Home"]
+baby = ["Baby", "Baby Registry", "Car Seats", "Strollers", "Nursery", "Baby & Toddler Toys", "Diapering", "Feeding"]
+toys = ["Toys"]
+food = ["Food"]
+pets = ["Pets", "Pet Supplies"]
+beauty = ["Beauty", "Premium Beauty"]
+personal_care = ["Personal Care", "Oral Care", "Shave", "Bath & Body"]
+arts_crafts_sewing = ["Arts, Crafts & Sewing"]
 
 with open('info.csv', encoding = "utf8") as product_data:
     csv_reader = csv.reader(product_data, delimiter = ",")
@@ -25,8 +36,8 @@ print(categories)
 
 """
 with open('clean_info.csv', mode = "w", encoding="utf8") as info_file:
-    info_writer = csv.writer(info_file, delimiter = ",")
-
+    info_writer = csv.writer(info_file, delimiter = ",", newline = "")
+    
     for row in data_list:
         info_writer.writerow(row)
 """
