@@ -13,7 +13,7 @@ class ProductSpyder(CrawlSpider):
     rules = (
         Rule(LinkExtractor(allow=('/ip/',)), callback="parse_item"),
         Rule(LinkExtractor(allow=('/cp/',))),
-#        Rule(LinkExtractor(allow=('/browse/',))),
+        Rule(LinkExtractor(allow=('/browse/',))),
     )
 
     start_urls = [
@@ -21,7 +21,8 @@ class ProductSpyder(CrawlSpider):
 #        'https://www.walmart.com/ip/Super-Smash-Bros-Ultimate-Special-Edition-Nintendo/162583898'
 #        'https://www.walmart.com/ip/Cottonelle-Ultra-CleanCare-Strong-Toilet-Paper-12-Mega-Rolls-Bath-Tissue/331701566?wpa_bd=&wpa_pg_seller_id=F55CDC31AB754BB68FE0B39041159D63&wpa_ref_id=wpaqs:_zkFh0GbX72MldkEenFxk5IufInphxAfGMzSrL_aCMybOMUedwKb2Pd3XgJcLhgAgQSJ6odAn4kKNkJmVifRIMyecEfSqX7E-F74dv7PQG_F1TqFCGD93kzK4vvg3b_gS3KJ99kuOoWiPmv0bPOmqYvHZh49emuOcd_-M9izB9ceCn3cBBgM8HwHbj2xjx9dzvutgEcxFvKSYet36H1sSQ&wpa_tag=__tag__&wpa_aux_info=__aux_info__&wpa_pos=1&wpa_plmt=__plmt__&wpa_aduid=__aduid__'
 #        'https://www.walmart.com/browse/electronics/2-in-1-laptops/3944_3951_1089430_1230091_1155872?page=2'
-        'https://walmart.com/all-departments'
+#        'https://walmart.com/all-departments'
+        'https://www.walmart.com/cp/electronics/3944'
     ]
 
     def parse_start_url(self, response):
