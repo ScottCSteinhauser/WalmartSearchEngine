@@ -89,6 +89,7 @@ with open('info4.csv', 'r+') as product_data:
             info_writer.writerow(row + [kmeans.labels_[line-1]])
             line += 1
             print(line)
+
 print(categorySet)
 
 
