@@ -16,6 +16,8 @@ beauty = ["Beauty", "Premium Beauty"]
 personal_care = ["Personal Care", "Oral Care", "Shave", "Bath & Body"]
 arts_crafts_sewing = ["Arts, Crafts & Sewing"]
 
+ugly_data_list = []
+
 with open('nodupsall.csv', 'r+', encoding = "utf8") as product_data:
     csv_reader = csv.reader(product_data, delimiter = ",", quotechar = '"')
     line_count = 0
@@ -24,6 +26,18 @@ with open('nodupsall.csv', 'r+', encoding = "utf8") as product_data:
             keywords = row
             line_count += 1
         else:
+            if line_count % 2 == 0:
+                if row[7] == "Clothing":
+                    line_count += 1
+                    continue
+                if row[7] == "Home" or row[7] == "Arts, Crafts & Sewing" or row[7] == "Arts Crafts & Sewing":
+                    line_count += 1
+                    continue
+            if line_count % 3 == 0:
+                if row[7] == "Home" or row[7] == "Arts, Crafts & Sewing" or row[7] == "Arts Crafts & Sewing":
+                    line_count += 1
+                    continue
+            ugly_data_list.append(row.copy())
             row[0] = re.sub(r'[^\w\s]', '', row[0]).lower()
             row[5] = re.sub(r'[^\w\s]', '', row[5]).lower()
             row[6] = re.sub(r'[^\w\s]', '', row[6]).lower()
@@ -33,9 +47,14 @@ with open('nodupsall.csv', 'r+', encoding = "utf8") as product_data:
         print(f"Line Count: {line_count}")
 
 
-with open('clean_nodupsall.csv', mode = "w", encoding="utf8", newline='') as info_file:
+with open('trimmed_clean_nodupsall.csv', mode = "w", encoding="utf8", newline='') as info_file:
     info_writer = csv.writer(info_file, delimiter = ",")
     
     for row in data_list:
         info_writer.writerow(row)
 
+with open('trimmed_ugly_nodupsall.csv', mode="w", encoding="utf8", newline='') as info_file:
+    info_writer = csv.writer(info_file, delimiter=",")
+
+    for row in ugly_data_list:
+        info_writer.writerow(row)
