@@ -16,7 +16,7 @@ beauty = ["Beauty", "Premium Beauty"]
 personal_care = ["Personal Care", "Oral Care", "Shave", "Bath & Body"]
 arts_crafts_sewing = ["Arts, Crafts & Sewing"]
 
-with open('allinfo.csv', 'r+', encoding = "utf8") as product_data:
+with open('nodupsall.csv', 'r+', encoding = "utf8") as product_data:
     csv_reader = csv.reader(product_data, delimiter = ",", quotechar = '"')
     line_count = 0
     for row in csv_reader:
@@ -33,7 +33,7 @@ with open('allinfo.csv', 'r+', encoding = "utf8") as product_data:
         print(f"Line Count: {line_count}")
 
 
-with open('clean_allinfo.csv', mode = "w", encoding="utf8", newline='') as info_file:
+with open('clean_nodupsall.csv', mode = "w", encoding="utf8", newline='') as info_file:
     info_writer = csv.writer(info_file, delimiter = ",")
     
     for row in data_list:
