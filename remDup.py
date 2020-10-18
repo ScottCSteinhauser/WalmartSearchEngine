@@ -12,4 +12,4 @@ data.drop_duplicates(subset ="title",
                      keep = "first", inplace = True) 
   
 # displaying data 
-data.to_csv('nodups2.csv', index = False) 
+data.to_csv('nodupsall.csv', index = False) 
