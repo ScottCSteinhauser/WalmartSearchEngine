@@ -3,7 +3,7 @@ import re
 
 data_list = []
 
-categories = set("Fashion", "Electronics", "Home", "Baby", "Toys", "Food", "Pets", "Beauty", "Personal Care", "Arts, Crafts & Sewing")
+categories = set(["Fashion", "Electronics", "Home", "Baby", "Toys", "Food", "Pets", "Beauty", "Personal Care", "Arts, Crafts & Sewing"])
 
 fashion = ["Fashion", "Featured Brands", "Women", "Men", "Clothing", "Jewelry"]
 electronics = ["Electronics", "TV & Video", "Computers", "Cell Phones", "Wearable Tech", "iPad & Tablets", "Home Audio & Theater", "Video Games", "Portable Audio", "Cameras & Camcorders", "Smart Home"]
@@ -16,7 +16,7 @@ beauty = ["Beauty", "Premium Beauty"]
 personal_care = ["Personal Care", "Oral Care", "Shave", "Bath & Body"]
 arts_crafts_sewing = ["Arts, Crafts & Sewing"]
 
-with open('info.csv', encoding = "utf8") as product_data:
+with open('info.csv', 'r+', encoding = "utf8") as product_data:
     csv_reader = csv.reader(product_data, delimiter = ",")
     line_count = 0
     for row in csv_reader:
